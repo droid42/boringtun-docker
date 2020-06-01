@@ -1,6 +1,25 @@
 # Wireguard / Boringtun in Docker
 
-Wireguard but userspace and in containers and kubernetes-compatiable.
+Wireguard but userspace and in containers and kubernetes-compatible.
+
+## Building
+
+```bash
+git submodule init
+git submodule update
+```
+
+update to latest boringtun
+```bash
+cd boringtun
+git pull origin master
+cd ..
+```
+
+build
+```bash
+docker build -t boringtun:latest .
+```
 
 ## Getting Started
 
