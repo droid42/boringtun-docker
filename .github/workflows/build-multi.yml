@@ -46,6 +46,10 @@ jobs:
           rm -rf ~/.cargo
           mkdir ~/.cargo
           sudo mount -t tmpfs -o size=2048m tmpfs ~/.cargo
+          rm -rf /usr/local/cargo
+          mkdir /usr/local/cargo
+          sudo mount -t tmpfs -o size=2048m tmpfs /usr/local/cargo
+
           docker buildx build --platform ${{ steps.prepare.outputs.docker_platforms }} \
             --output "type=image,push=false" \
             --build-arg "BUILD_DATE=${{ steps.prepare.outputs.build_date }}" \
