@@ -43,6 +43,7 @@ jobs:
         name: Docker Buildx (no push)
         run: |
           # workaround https://github.com/uraimo/run-on-arch-action/issues/9
+          rm -rf ~/.cargo
           mkdir ~/.cargo
           mount -t tmpfs -o size=2048m tmpfs ~/.cargo
           docker buildx build --platform ${{ steps.prepare.outputs.docker_platforms }} \
