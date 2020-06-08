@@ -14,6 +14,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        submodules: true
+
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag localhost:5000/boringtun-rpi:latest
     - name: Push the docker image
