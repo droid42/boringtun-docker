@@ -1,0 +1,23 @@
+name: Docker Image CI rpi
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: true
+
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag localhost:5000/boringtun-amd64:latest
+    - name: Push the docker image
+      run: docker push localhost:5000/boringtun-amd64:latest
