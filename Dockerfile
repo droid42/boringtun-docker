@@ -6,7 +6,6 @@ RUN cargo build --release \
     && strip ./target/release/boringtun
 
 FROM debian:buster-slim
-
 WORKDIR /app
 COPY --from=builder /src/target/release/boringtun /app
 
